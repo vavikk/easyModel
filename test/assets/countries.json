@@ -1,0 +1,13 @@
+{
+  "result": 1,
+  "payload": [
+  {
+  "code": "USA",
+  "name": "UNITED STATES"
+  },
+  {
+  "code": "FXX",
+  "name": "FRANCE, METROPOLITAN"
+  }
+  ]
+}
