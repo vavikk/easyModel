@@ -2,7 +2,7 @@ var webpack = require("webpack");
 
 module.exports = {
     entry:{
-        app: './spec/app.ts'
+        app: './spec/app.js'
     },
     output:{
         filename:"[name].js",
@@ -15,15 +15,14 @@ module.exports = {
     },
     module: {
         loaders: [
-            {test: /\.ts$/, loader:"ts-loader" },
             {test: /\.json$/, loader: "json-loader" }
         ]
     },
     plugins: [
-        new webpack.optimize.UglifyJsPlugin( {
-            debug: false,
-            minimize: true
-        })
+//        new webpack.optimize.UglifyJsPlugin( {
+//            debug: false,
+//            minimize: true
+//        })
     ],
     devtool: "source-map"
 }

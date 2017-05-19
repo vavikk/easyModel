@@ -15,7 +15,7 @@ export class Request {
     *   }
     * )
     */
-    get(url: string) {
+    get(url) {
         if (arguments.length !== 1) {
             throw new Error(`Post requires 1 arguments, got ${arguments.length}`)
         }
@@ -38,7 +38,7 @@ export class Request {
     *   }
     * )
     */
-    post(url:string, data) {
+    post(url, data) {
         if (arguments.length !== 2) {
             throw new Error(`Post requires 2 arguments, got ${arguments.length}`)
         }
@@ -48,7 +48,7 @@ export class Request {
         }
         return this._request("POST", url, data)
     }
-    private _serialize(obj) {
+    _serialize(obj) {
         let str = []
         for (let p in obj)
             if (obj.hasOwnProperty(p)) {
@@ -56,7 +56,7 @@ export class Request {
             }
         return str.join("&")
     }
-    private _request(requestType, url:string, data = null) {
+    _request(requestType, url, data = null) {
         return new Promise((resolve, reject) => {
             let request = new XMLHttpRequest()
             request.onreadystatechange = () => {
