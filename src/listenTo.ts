@@ -19,7 +19,7 @@ import { isUndefined } from './utils'
 *   console.log("The model was changed ", key, value )
 * }
 */
-export function listenTo(model, action, func) {
+export function listenTo(model, action: string, func) : void {
   if(isUndefined(model)) {
     throw new Error("model is undefined")
   }

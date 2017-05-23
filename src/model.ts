@@ -1,7 +1,8 @@
 import { isUndefined, isObject, isEqual, clone} from "./utils"
 import {PubSub} from "./pubsub"
 export class Model {
-    
+    private _map: any;
+    private _pubsub: any;
     /**
      * @param {Object} [defaults] - default arguments for the model.
      * @example
@@ -11,7 +12,7 @@ export class Model {
      *
      * Warning:  pasing arguments to contructor(defaults) will not fire events
     */
-    constructor(defaults = null) {
+    constructor(defaults: any = null) {
         this._map = new Map();
         this._pubsub = new PubSub()
         if(arguments.length > 1) throw new Error(`Passing more than one argument to the contructor, expected 1 got ${arguments.length}`)
@@ -57,7 +58,7 @@ export class Model {
     * // Set a model without dispatching an event (silent mode)
     * model.set("name", "Vitalie", {silent: true})
     */
-    set(key , value, options){
+    set(key , value?: any, options?: any): void{
         if(isUndefined(key)) {
             throw new Error("Key is undefined")
         }
@@ -73,7 +74,7 @@ export class Model {
     * @param {string} key
     * @param {(string|Object)} value
     */
-    _setSingleKey(key,value, options = {}) {
+    private _setSingleKey(key,value, options: any = {}): void {
         if( options.force || this._isValueChanged(key,value)) {
             this._map.set(key, value)
             if(!options.silent)
@@ -84,7 +85,7 @@ export class Model {
     * Converts an object to key values
     * @param {Object} key - model key.
     */
-    _objToStrMap(obj) {
+    private _objToStrMap(obj): void {
       for (const key of Object.keys(obj)) {
         this._setSingleKey(key,obj[key])
       }
@@ -95,7 +96,7 @@ export class Model {
     * @param {(string|Object)} [value] - value can be string or {}, not used if the key is an {}.
     * @return {boolean} boolean
     */
-    _isValueChanged(key,value) {
+    private _isValueChanged(key,value) {
       if(this._map.has(key)) {
         let oldValue = this._map.get(key)
         return  !isEqual(value, oldValue)
@@ -122,11 +123,11 @@ export class Model {
     * console.log(newData) // {x:1}
     * 
     */
-    get(key, options) {
+    get(key, options?: any) {
         if( !isUndefined(options) && options.immutable ) {
-            return clone(this._map.get(key));
+            return clone(this._map.get(key))
         } else {
             return this._map.get(key);
         }
     }
-} 
+}

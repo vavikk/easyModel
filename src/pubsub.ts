@@ -1,5 +1,7 @@
 import {  isUndefined } from './utils'
 export class PubSub {
+    private topics: any;
+    private subUid: number;
     constructor() {
         this.topics = {}
         this.subUid = -1
