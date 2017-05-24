@@ -77,6 +77,7 @@ console.log(data) // {x:2}
 let newData = model.get("data");
 console.log(newData) // {x:1}
 ``` 
-More documentation: 
-http://vavikk.github.io/easymodel/
+To do:
+More documentation, examples.
+ 
 
