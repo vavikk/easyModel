@@ -6,7 +6,8 @@
         "sourceMap": true,
         "noImplicitAny": false,
         "baseUrl": ".",
-        "outDir": "./ES5",
+        "outDir": "./public",
+        "removeComments": true,
         "lib": ["dom", "es2015.promise", "es5", "es2015"]
     },
     "exclude": [
@@ -20,6 +21,6 @@
       "node_modules/@types",
       "src/types/"
     ],
-    "compileOnSave": false,
+    "compileOnSave": true,
     "buildOnSave": false
 }

@@ -2,14 +2,14 @@
   "name": "easyModel",
   "version": "1.0.0",
   "description": "",
-  "main": "./public/app.js",
+  "main": "./public/src/index.js",
   "types": "./src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --watch --config webpack.config.js --progress --colors",
     "build": "webpack --config webpack.config.js --progress --colors"
   },
-  "author": "",
+  "author": "Vitalie Jerebnii, Dan Shields",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^7.0.18",
