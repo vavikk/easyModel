@@ -11,6 +11,10 @@
   },
   "author": "Vitalie Jerebnii, Dan Shields",
   "license": "ISC",
+  "repository" :
+  { "type" : "git",
+    "url" : "https://github.com/vavikk/easyModel"
+  }
   "devDependencies": {
     "@types/node": "^7.0.18",
     "speedracer": "^0.2.0",
